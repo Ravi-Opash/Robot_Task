@@ -1,7 +1,7 @@
 let robot = [0, 0]
 
-output=trackRobot(20, 30, 10, 40)(robot, "North");
-console.log(output);
+output=trackRobot(20, 30, 10, 40)(robot, "West");
+console.log(output)
 
 function trackRobot(...clock) {
     return function trackRobot(robot, direction) {
