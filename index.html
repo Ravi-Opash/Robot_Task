@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSS Template</title>
+    <link rel="stylesheet" href="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            padding: 30px 5%;
+            margin: 0%;
+            background-color: rgb(21, 37, 48);
+            position: relative;
+        }
+
+        .main {
+            background-color: rgb(61, 61, 63);
+        }
+
+        header {
+            display: flex;
+            color: white;
+            font-size: 1.4rem;
+            width: 100%;
+            height: 70px;
+            margin: 0%;
+            padding: 0 5%;
+        }
+
+        ul li {
+            list-style-type: none;
+            width: 100%;
+            display: inline;
+            padding-right: 5%;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+
+        .header_left {
+            display: flex;
+            text-align: left;
+            margin: auto 0%;
+            width: 12%;
+        }
+
+        .header_left img {
+            width: 30px;
+        }
+
+        .header_logo {
+            text-align: end;
+            padding-right: 4%;
+            margin: auto 0;
+            width: 30%;
+        }
+
+        .logo_text {
+            margin: auto 0;
+            width: 70%;
+            font-size: 1.8rem;
+        }
+
+
+        .main_nav {
+            margin: auto 0;
+            display: none;
+            margin-left: 5%;
+        }
+
+        .nav_menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .line1,
+        .line2,
+        .line3 {
+            width: 35px;
+            height: 5px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .header_center {
+            width: 68%;
+            margin: auto 0%;
+        }
+
+        .header_right {
+            width: 10%;
+            text-align: end;
+        }
+
+        .header_right img {
+            border-radius: 50%;
+            width: 60px;
+            margin: auto 0%;
+            padding: 5%;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .header_left {
+                display: flex;
+                text-align: left;
+                margin: auto 0%;
+                width: 20%;
+            }
+
+            .header_center {
+                width: 60%;
+                margin: auto 0%;
+
+            }
+
+        }
+
+        @media only screen and (max-width: 700px) {
+            body {
+                padding: 20px 1%;
+            }
+
+            .main_nav {
+                display: flex;
+                width: 33%;
+            }
+
+            .nav_menu {
+                display: inline-block;
+                width: auto;
+            }
+
+            header {
+                padding: 0%;
+                margin: 0%;
+            }
+
+            .header_left {
+                width: 34%;
+            }
+
+            .header_center {
+                display: none;
+                position: absolute;
+                top: 83px;
+                width: 98%;
+                left: 0%;
+                margin: 1%;
+                background-color: rgb(61, 61, 63);
+                animation: 0.3s linear 0s slide;
+
+            }
+
+            @keyframes slide {
+                from {
+                    height: 0px;
+                }
+                to {
+                    height: 130px;
+                }
+            }
+
+            .header_right {
+                width: 33%;
+            }
+
+            .header_right img {
+                padding: 0% 5%;
+                padding-top: 3%;
+                margin-right: 10%;
+            }
+
+            ul li {
+                list-style-type: none;
+                display: block;
+                width: 100%;
+                padding: 0%;
+                line-height: 40px;
+                text-align: center;
+                animation: 0.3s linear 0s lists;
+            }
+
+            @keyframes lists {
+                from {
+                    height: 0px;
+                }
+                to {
+                    height: 40px;
+                }
+            }
+
+            a {
+                display: block;
+                width: 100%;
+            }
+
+            li :hover {
+                background-color: rgb(36, 35, 35);
+            }
+
+            ul {
+                padding: 0%;
+                padding-top: 10px;
+                margin: 0%;
+            }
+
+            .change .line1 {
+                transform: translate(0, 11px) rotate(-45deg);
+            }
+
+            .change .line2 {
+                opacity: 0;
+            }
+
+            .change .line3 {
+                transform: translate(0, -11px) rotate(45deg);
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <header id="header">
+
+            <div class="main_nav">
+                <div class="nav_menu" onclick="myFunction(this)">
+                    <div id="line1" class="line1"></div>
+                    <div id="line2" class="line2"></div>
+                    <div id="line3" class="line3"> </div>
+                </div>
+            </div>
+
+            <div class="header_left">
+                <div class="header_logo">
+                    <img id="logo" src="Images/logo.png" alt="Logo">
+                </div>
+                <div class="logo_text">
+                    <span> LOGO </span>
+                </div>
+            </div>
+
+            <div id="header_center" class="header_center">
+                <ul id="header_center">
+                    <li><a href="#product">PRODUCT</a></li>
+                    <li><a href="#pricing">PROCING</a></li>
+                    <li><a href="#blog">BLOG</a></li>
+                </ul>
+            </div>
+
+            <div class="header_right">
+                <img id="avatar" src="Images/2.jpg" alt="Avatar Image">
+            </div>
+
+        </header>
+    </div>
+
+
+    <script>
+        let click = 0;
+        function myFunction(x) {
+            if (click == 0) {
+                x.classList.toggle("change");
+                document.getElementById('header_center').style.display = "block";
+                click++;
+            }
+            else {
+                x.classList.toggle("change");
+                document.getElementById('header_center').style.display = "none";
+                click = 0;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
